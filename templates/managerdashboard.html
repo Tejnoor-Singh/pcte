@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manager Dashboard</title>
+ <link rel="stylesheet" href="static/css/dashboard.css">
+    <script
+      src="https://kit.fontawesome.com/fb3d3bd745.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="manager-dashboard-container">
+      <div class="navbar-container">
+        <i class="fa-solid fa-bars fa-2x mobilemenu" style="color: whitesmoke"></i>
+        <div class="user-info-container">
+            <p class="username">{{ session['username'] }}</p>
+        </div>
+    </div>
+      </div>
+      <aside class="sidebar-container">
+        <div class="manager-dashboard-links">
+        <li class="link-in-dashboard home-page">Home</li>
+            <form action="/all-labourers" method="post">
+          <button class="link-in-dashboard labour-page">Labours</button>
+            </form>
+            <form action="/fetch-submission" method="post">
+          <button class="link-in-dashboard track">Projects</button>
+                </form>
+
+        </div>
+      </aside>
+      <div class="main-dashboard-container">
+        <div class="home-container">
+          <div class="current-projects">
+            <h2 class="current-project-header">Ongoging Projects</h2>
+            <div class="current-project-content">
+              <div class="project-cards">
+                <div class="project-card-name">Living room</div>
+                <div class="project-card-description">
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius
+                  amet debitis, possimus nesciunt modi, recusandae sapiente a
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--cards-->
+          <div class="function-content-container">
+            <div class="function-card">
+              <div style="display: flex; flex-direction: column; gap: 1.2rem">
+                <div class="function-time">
+                  <div class="timec">
+                    <span class="time"></span>
+                    <span class="date"></span>
+                  </div>
+                </div>
+                <div class="numbers-card">
+                  <div class="project-number-card">
+                    <h3 class="number">Pending Requests :</h3>
+                    <p class="number-content">50+</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="fucntion-card">
+              <div class="numbers-card">
+                <div class="project-number-card">
+                  <h3 class="number">Task Done :</h3>
+                  <p class="number-content">50+</p>
+                </div>
+                <div class="project-number-card">
+                  <h3 class="number">Task Left :</h3>
+                  <p class="number-content">50</p>
+                </div>
+              </div>
+            </div>
+            <div class="function-card">
+              <div class="numbers-card">
+                <div class="project-number-card">
+                  <h3 class="number">Total labour :</h3>
+                  <p class="number-content">50+</p>
+                </div>
+                <div class="project-number-card">
+                  <h3 class="number">Onboard Labour :</h3>
+                  <p class="number-content">50</p>
+                </div>
+            </div>
+          </div>
+
+  <div class="function-card" style="background-color: rgb(246, 246, 246); font-family: var(--font); height: fit-content; padding: 1rem; border-radius: 12px;   box-shadow: rgba(7, 115, 115, 0.376) 0px 3px 8px;">
+            TODO:
+            <div class="todo-container">
+
+            <input type="text" name="" id="" class="todoiteminput" placeholder="Enter Your Task Here">
+            <button class="addbtn">Add</button>
+            <div class="ul-for-todo">
+              <ul class="ul-to"></ul>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+        <!-- labour page
+         -->
+ <div class="labour-container">
+            <div class="add-labour-form-container">
+                <div class="add-labour-header">
+                    <h2 class="add">Add New Labour</h2>
+
+                      <button  class="fa-solid fa-xmark fa-2x crosslabourform" style="color: rgb(0, 0, 0)"></button>
+
+                </div>
+
+                <form action="/add-labour" method="post" class="labour-form">
+                    <div class="labour-name">
+                        <input type="text" name="name" placeholder="Labour Name" class="labour">
+                    </div>
+                    <div class="labour-skill">
+                        <input type="text" name="skills" placeholder="Labour Skills" class="labour">
+                    </div>
+                    <div class="labour-number">
+                        <input type="tel" name="phone" placeholder="Labour Phonenumber" class="labour">
+                    </div>
+                    <div class="labour-status">
+                        <input type="text" name="status" placeholder="Labour Working Status" class="labour">
+                    </div>
+                    <input type="submit" value="Add" class="submit-labour">
+                </form>
+            </div>
+
+            <div class="labour-header">
+                <div class="labour-heading">All Labours</div>
+                <button class="add-new-labour">+ Add New</button>
+            </div>
+            <div class="labour-content-container">
+                <table id="table">
+                    <tr>
+                        <th class="heading-table">Labour Name</th>
+                        <th class="heading-table">Skill Set</th>
+                        <th class="heading-table">Phone Number</th>
+                        <th class="heading-table">Labour Status</th>
+                    </tr>
+                    <tbody>
+                    {% for doc in documents %}
+                        <tr>
+                            <td>{{ doc['name'] }}</td>
+                            <td>{{ doc['skills'] }}</td>
+                            <td>{{ doc['phone-number'] }}</td>
+                            <td>{{ doc['status'] }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>    </div>
+        </div>
+    </div>
+    <!-- project
+         -->
+         <div class="project-track-container">
+          <div class="track-header">
+          <h2 class="track-heading" style="font-family: var(--font); font-size: 2.5rem;">Track Your Project</h2>
+          <button class="update-project">Update</button>
+            <div class="update-project-container">
+              <div class="update-header">
+              <h2 class="update-heading" style="font-family: var(--font); font-size: 2.5rem;">Update</h2>
+              <i
+              class="fa-solid fa-xmark fa-2x crossupdateform"
+              style="color: rgb(0, 0, 0)"
+            ></i>
+          </div>
+              <form action="/submission-date" method="post">
+                <div class="project-name">
+                  <input type="text" name="project-name" class="input" placeholder="Project name">
+                </div>
+                <div class="project-updation">
+                  <input type="text" name="updation" class="input" placeholder="Updation">
+                </div>
+                <div class="end-date">
+                  <input type="date" name="submit" class="input">
+                </div>
+                <input type="submit" value="Update" class="update-form-btn">
+              </form>
+            </div>
+        </div>
+          <table >
+                    <tr>
+                        <th class="heading-table">Project Name</th>
+                        <th class="heading-table">Progress</th>
+                        <th class="heading-table">End Date</th>
+
+                    </tr>
+                    <tbody>
+                    {% for docc in documents %}
+                        <tr>
+                            <td>{{ docc['project-name'] }}</td>
+                            <td>{{ docc['updation'] }}</td>
+                            <td>{{ docc['submit-by'] }}</td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+        </div>
+      </div>
+
+    </div>
+</div>
+
+<script src="static/js/dashboard.js"></script>
+</body>
+</html>

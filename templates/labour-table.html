@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard</title>
+    <link rel="stylesheet" href="static/css/dashboard.css">
+    <script src="https://kit.fontawesome.com/fb3d3bd745.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="manager-dashboard-container">
+    <div class="navbar-container">
+        <i class="fa-solid fa-bars fa-2x mobilemenu" style="color: whitesmoke"></i>
+        <div class="user-info-container">
+            <p class="username">{{ session['username'] }}</p>
+        </div>
+    </div>
+    <aside class="sidebar-container">
+        <div class="manager-dashboard-links">
+            <li class="link-in-dashboard home-page">Home</li>
+            <form action="/all-labourers" method="post">  <li class="link-in-dashboard labour-page">Labours</li></form>
+            <li class="link-in-dashboard projects-page">Projects</li>
+            <li class="link-in-dashboard settings-page">Settings</li>
+        </div>
+    </aside>
+    <div class="main-dashboard-container">
+        <div class="home-container">
+            <div class="current-projects">
+                <h2 class="current-project-header">Ongoing Projects</h2>
+                <div class="current-project-content">
+                    <div class="project-cards">
+                        <div class="project-card-name">Living room</div>
+                        <div class="project-card-description">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius
+                            amet debitis, possimus nesciunt modi, recusandae sapiente a
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--cards-->
+            <div class="function-content-container">
+                <div class="function-card">
+                    <div style="display: flex; flex-direction: column; gap: 1.2rem">
+                        <div class="function-time">
+                            <div class="timec">
+                                <span class="time"></span>
+                                <span class="date"></span>
+                            </div>
+                        </div>
+                        <div class="numbers-card">
+                            <div class="project-number-card">
+                                <h3 class="number">Pending Requests :</h3>
+                                <p class="number-content">50+</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fucntion-card">
+                    <div class="numbers-card">
+                        <div class="project-number-card">
+                            <h3 class="number">Task Done :</h3>
+                            <p class="number-content">50+</p>
+                        </div>
+                        <div class="project-number-card">
+                            <h3 class="number">Task Left :</h3>
+                            <p class="number-content">50</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="function-card"></div>
+            </div>
+        </div>
+
+        <!-- labour page -->
+        <div class="labour-container">
+            <div class="add-labour-form-container">
+                <div class="add-labour-header">
+                    <h2 class="add">Add New Labour</h2>
+
+                      <i  class="fa-solid fa-xmark fa-2x crosslabourform" style="color: rgb(0, 0, 0)"></i>
+
+                </div>
+
+                <form action="/add-labour" method="post" class="labour-form">
+                    <div class="labour-name">
+                        <input type="text" name="name" placeholder="Labour Name" class="labour">
+                    </div>
+                    <div class="labour-skill">
+                        <input type="text" name="skills" placeholder="Labour Skills" class="labour">
+                    </div>
+                    <div class="labour-number">
+                        <input type="tel" name="phone" placeholder="Labour Phonenumber" class="labour">
+                    </div>
+                    <div class="labour-status">
+                        <input type="text" name="status" placeholder="Labour Working Status" class="labour">
+                    </div>
+                    <input type="submit" value="Add" class="submit-labour">
+                </form>
+            </div>
+
+            <div class="labour-header">
+                <div class="labour-heading">All Labours</div>
+                <button class="add-new-labour">+ Add New</button>
+            </div>
+            <div class="labour-content-container">
+                <table id="table">
+                    <tr>
+                        <th class="heading-table">Labour Name</th>
+                        <th class="heading-table">Skill Set</th>
+                        <th class="heading-table">Phone Number</th>
+                        <th class="heading-table">Labour Status</th>
+                    </tr>
+                    <tbody>
+                    {% for doc in documents %}
+                        <tr>
+                            <td>{{ doc['name'] }}</td>
+                            <td>{{ doc['skills'] }}</td>
+                            <td>{{ doc['phone-number'] }}</td>
+                            <td>{{ doc['status'] }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>    </div>
+        </div>
+    </div>
+</div>
+
+<script src="static/js/dashboard.js"></script>
+</body>
+</html>

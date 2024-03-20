@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Cambay:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image:
+  url("https://img.freepik.com/free-photo/beautiful-view-construction-site-city-during-sunset_181624-9347.jpg?w=996&t=st=1710843411~exp=1710844011~hmac=b486b3743a4c30a1e78e3fbe54adaf40452bf9417f86b80c1c27a7a1736dcf69");
+
+  background-repeat:no-repeat;
+  background-size:cover;
+
+}
+.tabs-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 1rem;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 350px;
+  margin-bottom: 2rem;
+}
+.login-tab,
+.signup-tab {
+  font-size: 1.5rem;
+  width: 50%;
+  text-align: center;
+  font-family: "Cambay", sans-serif;
+  max-width: 250px;
+  padding: 0rem 1rem;
+  transition: all 0.2s linear;
+}
+.active-tab {
+  background-color: black;
+  color: white;
+  padding: 0rem 1rem;
+  border-radius: 50px;
+}
+.login-tab:hover,
+.signup-tab:hover {
+  background-color: black;
+  color: white;
+  padding: 0rem 1rem;
+  border-radius: 50px;
+}
+.form-login-container,
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"] {
+  padding: 1rem 0.5rem;
+  width: 100%;
+  width: 300px;
+  border: 1px solid rgb(200, 200, 200);
+  outline: 0;
+}
+.login-btn {
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  border: 0;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
+.identity-label {
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  font-family: sans-serif;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+.image-signup {
+  /* height: 100px; */
+  /* margin: 1rem; */
+  margin: 2rem 0 1rem 0;
+}
+.form-signup-container {
+  display: none;
+}
+.main-container {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 2rem;
+  border-radius: 15px;
+  background-color:rgba(255,255,255,0.2);
+  backdrop-filter:blur(8px);
+  transition:all 0.2s linear;
+}
+.main-container:hover{
+transform:scale(1.1)
+}

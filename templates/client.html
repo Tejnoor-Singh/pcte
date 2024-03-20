@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auth Manager</title>
+    <link rel="stylesheet" href="static/css/auth.css" />
+  </head>
+  <body>
+    <div class="auth-container">
+      <div class="main-container">
+        <div class="tabs-container">
+          <p class="login-tab active-tab">Login</p>
+          <p class="signup-tab">Sign Up</p>
+        </div>
+        <div class="form-login-container">
+          <form action="/login-client" method="post">
+             <div class="name-login">
+              <input
+                type="text"
+                name="username"
+                id="name"
+                placeholder="Username"
+              />
+            </div>
+            <div class="name-login">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+              />
+            </div>
+            <div class="password-login">
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+              />
+            </div>
+            <input type="submit" value="Login" class="login-btn" />
+          </form>
+        </div>
+
+
+
+        <div class="form-signup-container">
+          <form action="/register-client" method="post">
+
+            <div class="name-login">
+              <input
+                type="text"
+                name="username"
+
+                placeholder="Username"
+              />
+            </div>
+            <div class="email-login">
+              <input
+                type="email"
+                name="email"
+
+                placeholder="Email"
+              />
+            </div>
+            <div class="phone-signup">
+              <input
+                type="tel"
+                name="phone"
+
+                placeholder="Phone Number"
+              />
+            </div>
+            <div class="password-signup">
+              <input
+                type="password"
+                name="password"
+
+                placeholder="Password"
+              />
+            </div>
+            <input type="submit" value="Signup" class="login-btn" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="/static/js/auth.js"></script>
+  </body>
+</html>

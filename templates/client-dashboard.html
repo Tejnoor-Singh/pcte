@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="static/css/dashboard.css" />
+    <script
+      src="https://kit.fontawesome.com/fb3d3bd745.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="static/css/client.css" />
+  </head>
+  <body>
+    <div class="owner-container">
+      <div class="navbar-container">
+        <i
+          class="fa-solid fa-bars fa-2x mobilemenu"
+          style="color: whitesmoke"
+        ></i>
+        <div class="user-info-container">
+          <p class="username">Owner name</p>
+        </div>
+      </div>
+      <aside class="sidebar-container">
+        <div class="manager-dashboard-links">
+          <li class="link-in-dashboard home-page">Home</li>
+          <li class="link-in-dashboard trackpage">Track</li>
+     
+
+        </div>
+      </aside>
+      <div class="home-container">
+        <div class="home-container-header">
+          <button class="add-project">+ Add Project</button>
+        </div>
+
+        <div class="add-new-project-container">
+          <div class="add-project-header">
+            <h2 class="add">Add New Project</h2>
+            <i
+              class="fa-solid fa-xmark fa-2x crossadd-projectform"
+              style="color: rgb(0, 0, 0)"
+            ></i>
+          </div>
+          <form action="/add_new_project" method="post" class="add-project-form">
+            <div class="project-name">
+              <input
+                type="text"
+                name="project-name"
+                class="input"
+                placeholder="Project name"
+                required
+              />
+            </div>
+            <div class="project-description">
+              <textarea
+                name="description"
+                cols="25"
+                rows="3"
+                placeholder="Describe your project"
+                required
+              ></textarea>
+            </div>
+            <div class="project-description">
+              <input
+                type="number"
+                name="budget"
+                class="budget"
+                placeholder="Your  budget"
+              />
+            </div>
+            <input type="submit" value="Upload" />
+          </form>
+        </div>
+      </div>
+
+
+
+      <!-- track -->
+
+
+
+      <div class="labour-content-container">
+        <h2 class="track-heading" style="font-family: var(--font); font-size: 2.5rem;">Track Your Project</h2>
+        <table id="table">
+          <tr>
+            <th class="heading-table">Project Name</th>
+            <th class="heading-table">Progress</th>
+            <th class="heading-table">End Date</th>
+
+          </tr>
+            <tbody>
+
+              <tr>
+                <td>Living room</td>
+                <td>added led stand</td>
+                <td>1-12-24</td>
+
+              </tr>
+            </tbody>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <script src="static/js/client.js"></script>
+</body>
+</html>
